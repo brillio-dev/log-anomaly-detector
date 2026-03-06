@@ -1,0 +1,30 @@
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: anomaly-detector-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.trusted.packages: "com.example.consumer.model"
+        spring.json.value.default.type: "com.example.consumer.model.LogEvent"
+  datasource:
+    url: jdbc:postgresql://localhost:5432/alertsdb
+    username: user
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+server:
+  port: 8081
+
+agent:
+  service:
+    url: http://localhost:8000
+
+logging:
+  level:
+    com.example: DEBUG
