@@ -26,10 +26,10 @@
 
 
 ## Verify everything works
-curl http://localhost:8081/alerts | jq
-curl http://localhost:8081/alerts/severity/HIGH
-curl http://localhost:8081/alerts/service/order-service
-curl "http://localhost:8081/alerts/filter?severity=HIGH&service=order-service"
+`curl http://localhost:8081/alerts | jq`
+`curl http://localhost:8081/alerts/severity/HIGH`
+`curl http://localhost:8081/alerts/service/order-service`
+`curl "http://localhost:8081/alerts/filter?severity=HIGH&service=order-service"`
 
 ## Database tables
 - List all tables
